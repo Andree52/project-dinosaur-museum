@@ -29,7 +29,7 @@ function getRoomByDinosaurName(dinosaurs, rooms, dinosaurName) {
   const dinoroom = dinosaurs.find(dinosaur => dinosaur.name === dinosaurName);// dinoroomis set to be the var for finding dinosaurs 
 console.log (dinoroom)
   if (!dinoroom) {
-    return `Dinosaur with name '${dinosaurName}' cannot be found.`;
+    return `Dinosaur with name '${dinosaurName}' cannot be found.`;// this if statement just means if you cant find the dinosaur in the room then say dino cannot be found 
   }
   const dinosaurRoomId = dinoroom.dinosaurId;
   const foundRoom = rooms.find(room => room.dinosaurs.includes(dinosaurRoomId));
