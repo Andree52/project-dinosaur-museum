@@ -26,12 +26,12 @@ const exampleRoomData = require("../data/rooms");
  *  //> "Dinosaur with name 'Pterodactyl' cannot be found."
  */
 function getRoomByDinosaurName(dinosaurs, rooms, dinosaurName) {
-  const dinoroom = dinosaurs.find(dinosaur => dinosaur.name === dinosaurName);// dinoroomis set to be the var for finding dinosaurs 
+  const dinoroom = dinosaurs.find(dinosaur => dinosaur.name === dinosaurName);// dinoroom is set to be the var for finding dinosaurs 
 console.log (dinoroom)
   if (!dinoroom) {
     return `Dinosaur with name '${dinosaurName}' cannot be found.`;// this if statement just means if you cant find the dinosaur in the room then say dino cannot be found 
   }
-  const dinosaurRoomId = dinoroom.dinosaurId;
+  const dinosaurRoomId = dinoroom.dinosaurId;// now i need a var to find the dino by the id .
   const foundRoom = rooms.find(room => room.dinosaurs.includes(dinosaurRoomId));
   if (foundRoom) {
     return foundRoom.name;
