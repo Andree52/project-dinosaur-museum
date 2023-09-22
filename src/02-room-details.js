@@ -32,7 +32,7 @@ console.log (dinoroom)
     return `Dinosaur with name '${dinosaurName}' cannot be found.`;// this if statement just means if you cant find the dinosaur in the room then say dino cannot be found 
   }
   const dinosaurRoomId = dinoroom.dinosaurId;// now i need a var to find the dino by the id .
-  const foundRoom = rooms.find(room => room.dinosaurs.includes(dinosaurRoomId));
+  const foundRoom = rooms.find(room => room.dinosaurs.includes(dinosaurRoomId));// maliq helped me with this. 
   if (foundRoom) {
     return foundRoom.name;
   } else {
