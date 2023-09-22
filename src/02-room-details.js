@@ -36,7 +36,7 @@ console.log (dinoroom)
   if (foundRoom) {
     return foundRoom.name;
   } else {
-    return `Dinosaur with name '${dinosaurName}' cannot be found in any rooms.`;
+    return `Dinosaur with name '${dinosaurName}' cannot be found in any rooms.`; // if you can find the room the dino is in by its id the return the room name if not then say cannot be found 
   }
 }
 
