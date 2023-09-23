@@ -126,8 +126,42 @@ return `Ticket type '${ticketInfo.ticketType}' cannot be found.`
     purchaseTickets(tickets, purchases);
     //> "Ticket type 'discount' cannot be found."
  */
+//function purchaseTickets(ticketData, purchases) {
+  
 function purchaseTickets(ticketData, purchases) {
-  let purchaseTotal= 0;
+  // created a variable purchaseTotal and set it = 0
+  let purchaseTotal = 0
+  // created a variable called receipt and set it equal = ""
+  let receipt = ""
+  // this loops through the Purchases array of objects 
+  for(let i = 0; i < purchases.length; i++){
+  // called the function calculateTicketPrice from the previous problem and set it = ticketPrice
+    ticketPrice = calculateTicketPrice(ticketData, purchases[i])
+    // created an if statement to illustrate control flow of whether or not the return value for the calculateTicketPrice function yeilded a "string" datatype or "Number" data type
+    if(typeof ticketPrice === "string"){
+      return ticketPrice
+    } else {
+      purchaseTotal += ticketPrice
+      // created a variable to contain the formatted version of the entrant type which is the value for the key value pair entrantType in the purchase object in the purchases array of objects
+      capitalizedEntrantType = purchases[i].entrantType[0].toUpperCase() + purchases[i].entrantType.slice(1)
+      // created a variable to contain the formatted version of the ticketType which is the value for the key value pair ticketType in the purchase object in the purchases array of objects. Capitalized the first letter of the ticketType and used slice method to ad the rest of the word
+      capitalizedTicketType = purchases[i].ticketType[0].toUpperCase() + purchases[i].ticketType.slice(1)
+      // created a variable to contain the formatted version of each extra in the Extras array in the purchase object which is the value for the key value pair for the extras key in the purchase object in the purchases array of objects. Capitalized the first letter of each extra in the extras array and used slice method to ad the rest of the word. Then used join to join the string values in the array into a string.
+      formattedExtras = purchases[i].extras.map(extra => extra[0].toUpperCase() + extra.slice(1) + ' Access').join(", ")
+      // created an if statement to check to see if there are any values within the extras arraay which is a value for the key extra in the purchase object within the Purchases array of objects
+      if(purchases[i].extras.length === 0){
+      // created a receipt variable to build out each line in the receipt string. Each line reflects the information in each purchase object within the Purchase array of objects. This version of the receipt variable takes into account if there are no extras in the extras array for the key extras in the purchase object within the Purchases array of objects
+        receipt += `${capitalizedEntrantType} ${capitalizedTicketType} Admission: $${(ticketPrice/100).toFixed(2)}\n`
+      } else {
+  
+        receipt += `${capitalizedEntrantType} ${capitalizedTicketType} Admission: $${(ticketPrice/100).toFixed(2)} (${formattedExtras})\n`
+      }
+    }
+   
+  }
+  return `Thank you for visiting the Dinosaur Museum!\n-------------------------------------------\n${receipt}-------------------------------------------\nTOTAL: $${(purchaseTotal/100).toFixed(2)}`
+  }//
+  /* let purchaseTotal= 0;
   let receipt = ""
   for (let H = 0; H < purchases.length; H++) {
     let ticketPrice = calculateTicketPrice(ticketData, purchases[H])
@@ -138,7 +172,7 @@ function purchaseTickets(ticketData, purchases) {
       entrantCaps = purchases[H].entrantType[0].toUpperCase() + purchases[H].entrantType.slice(1)
       ticketTypeCaps = purchases[H].ticketType[0].toUpperCase() + purchases[H].ticketType.slice(1)
       extrasformatted = purchases[H].extras.map(extra => extra[0].toUpperCase() + extra.slice(1) + ' Access').join(", ")
-      if (purchases[H].extra.length === 0) {
+      if (purchases[H].extras.length === 0) {
         receipt += `${entrantCaps} ${ticketTypeCaps} Admission: $${(ticketPrice/100).toFixed(2)}\n`
       }else{
         receipt += `${capitaliedEntrantType} ${capitaliedTicketType} Admission: $${(ticketPrice/100).toFixed(2)} (${formattedExtras})\n`
@@ -146,7 +180,8 @@ function purchaseTickets(ticketData, purchases) {
     }
   }
   return `Thank you for visiting the Dinosaur Museum!\n-------------------------------------------\n${receipt}\n-------------------------------------------\nTOTAL:$${(purchaseTotal/100).toFixed(2)}`
-}
+  */
+//} 
 
 // Do not change anything below this line.
 module.exports = {
