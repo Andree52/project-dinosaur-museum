@@ -54,22 +54,34 @@ const exampleTicketData = require("../data/tickets");
     calculateTicketPrice(tickets, ticketInfo);
     //> "Entrant type 'kid' cannot be found."
  */
-function calculateTicketPrice(ticketData, ticketInfo) {
-  //created a if statement to check if the key in tickettype in the object ticketinfo can be found in the tickets.json
+function calculateTicketPrice(ticketData, ticketInfo, ticketType, entrantType, extras ) {
+                          //W/O EXTRAS
+  //console logging the ticketInfo ticketType info
+  // console.log(`Ticket Info: ${ticketInfo.ticketType}`)
+  //created a if statement to check if the key in tickettype in the object ticketinfo can be found in the tickets.js
   if (!ticketData[ticketInfo.ticketType]) {
-return `Ticket type '${ticketInfo.ticketType}' cannot be found.`
+    // console.log(ticketInfo.ticketType)
+    return `Ticket type '${ticketInfo.ticketType}' cannot be found.`
   }
-  if (!ticketData[ticketInfo.ticketType].priceIncents[ticketInfo.entrantType]) {
+  //can't just console.log ticketType or entrantType even if it's a parameter it still needs to be accessed through it's object (order of the properties are important you can't skip to the property without specifying )
+  
+  // console.log(ticketInfo)// info for a single ticket (type, entrant, extras)
+  // console.log(ticketInfo.ticketType)// type of ticket
+  // console.log(ticketData[ticketInfo.ticketType])// ticket type object from tickets.js
+  // console.log(ticketData[ticketInfo.ticketType].priceInCents) //object of entrant types and prices
+
+  if (!ticketData[ticketInfo.ticketType].priceInCents[ticketInfo.entrantType]) {
     return `Entrant type '${ticketInfo.entrantType}' cannot be found.`
   }
-  let ticketPrice = ticketData[ticketInfo.ticketType].priceIncents[ticketInfo.entrantType]
-  for (let H = 0; H < ticketInfo.extras.length; H++) {
-    extrasToAdd = ticketInfo.extras[H]
-    if (!ticketData.extras[extrasToAdd]) {
-      return `Extra type '${ticketInfo.extras[H]}' cannot be found.`
-    }
-    ticketPrice += ticketData.extras[extrasToAdd].priceIncents[ticketInfo.entrantType]
-  }
+                          // WITH EXTRAS
+  let ticketPrice = ticketData[ticketInfo.ticketType].priceInCents[ticketInfo.entrantType]
+  // for (let H = 0; H < ticketInfo.extras.length; H++) {
+  //   extrasToAdd = ticketInfo.extras[H]
+  //   if (!ticketData.extras[extrasToAdd]) {
+  //     return `Extra type '${ticketInfo.extras[H]}' cannot be found.`
+  //   }
+  //   ticketPrice += ticketData.extras[extrasToAdd].priceIncents[ticketInfo.entrantType]
+  // }
   return ticketPrice
 }
 
