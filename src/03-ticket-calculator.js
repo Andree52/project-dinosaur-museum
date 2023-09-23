@@ -54,7 +54,7 @@ const exampleTicketData = require("../data/tickets");
     calculateTicketPrice(tickets, ticketInfo);
     //> "Entrant type 'kid' cannot be found."
  */
-function calculateTicketPrice(ticketData, ticketInfo, ticketType, entrantType, extras ) {
+function calculateTicketPrice(ticketData, ticketInfo) {
                           //W/O EXTRAS
   //console logging the ticketInfo ticketType info
   // console.log(`Ticket Info: ${ticketInfo.ticketType}`)
@@ -64,7 +64,6 @@ function calculateTicketPrice(ticketData, ticketInfo, ticketType, entrantType, e
     return `Ticket type '${ticketInfo.ticketType}' cannot be found.`
   }
   //can't just console.log ticketType or entrantType even if it's a parameter it still needs to be accessed through it's object (order of the properties are important you can't skip to the property without specifying )
-  
   // console.log(ticketInfo)// info for a single ticket (type, entrant, extras)
   // console.log(ticketInfo.ticketType)// type of ticket
   // console.log(ticketData[ticketInfo.ticketType])// ticket type object from tickets.js
