@@ -173,28 +173,7 @@ function purchaseTickets(ticketData, purchases) {
    
   }
   return `Thank you for visiting the Dinosaur Museum!\n-------------------------------------------\n${receipt}-------------------------------------------\nTOTAL: $${(purchaseTotal/100).toFixed(2)}`
-  }//
-  /* let purchaseTotal= 0;
-  let receipt = ""
-  for (let H = 0; H < purchases.length; H++) {
-    let ticketPrice = calculateTicketPrice(ticketData, purchases[H])
-    if (typeof ticketPrice === "string") {
-      return ticketPrice
-    }else{
-      purchaseTotal += ticketPrice
-      entrantCaps = purchases[H].entrantType[0].toUpperCase() + purchases[H].entrantType.slice(1)
-      ticketTypeCaps = purchases[H].ticketType[0].toUpperCase() + purchases[H].ticketType.slice(1)
-      extrasformatted = purchases[H].extras.map(extra => extra[0].toUpperCase() + extra.slice(1) + ' Access').join(", ")
-      if (purchases[H].extras.length === 0) {
-        receipt += `${entrantCaps} ${ticketTypeCaps} Admission: $${(ticketPrice/100).toFixed(2)}\n`
-      }else{
-        receipt += `${capitaliedEntrantType} ${capitaliedTicketType} Admission: $${(ticketPrice/100).toFixed(2)} (${formattedExtras})\n`
-      }
-    }
   }
-  return `Thank you for visiting the Dinosaur Museum!\n-------------------------------------------\n${receipt}\n-------------------------------------------\nTOTAL:$${(purchaseTotal/100).toFixed(2)}`
-  */
-//} 
 
 // Do not change anything below this line.
 module.exports = {
