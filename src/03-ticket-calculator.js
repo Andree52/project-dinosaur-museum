@@ -55,6 +55,7 @@ const exampleTicketData = require("../data/tickets");
     //> "Entrant type 'kid' cannot be found."
  */
 function calculateTicketPrice(ticketData, ticketInfo) {
+  //created a if statement to check if the key in tickettype in the object ticketinfo can be found in the tickets.json
   if (!ticketData[ticketInfo.ticketType]) {
 return `Ticket type '${ticketInfo.ticketType}' cannot be found.`
   }
