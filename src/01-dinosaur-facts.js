@@ -5,6 +5,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all dinosaurs.
 */
+//const dinosaurs = require("../data/dinosaurs");
 const exampleDinosaurData = require("../data/dinosaurs");
 // Do not change the line above.
 
@@ -128,3 +129,11 @@ module.exports = {
   getDinosaurDescription,
   getDinosaursAliveMya,
 };
+function getDinosaurMeaning(dinosaurs, dinosaurName){
+for (let H = 0; H < dinosaurs.length; H++) {
+  if (dinosaurs[H].name === dinosaurName) {
+    return dinosaurs[H].meaningOfName;
+}
+} return `This ${dinosaurName} couldn't be found.`
+}
+console.log(getDinosaurMeaning(exampleDinosaurData , "Utahraptor"));
