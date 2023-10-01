@@ -129,6 +129,7 @@ module.exports = {
   getDinosaurDescription,
   getDinosaursAliveMya,
 };
+// strech goal by andree 
 function getDinosaurMeaning(dinosaurs, dinosaurName){
 for (let H = 0; H < dinosaurs.length; H++) {
   if (dinosaurs[H].name === dinosaurName) {
